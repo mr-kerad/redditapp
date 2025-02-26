@@ -1,70 +1,31 @@
-# Getting Started with Create React App
+# RedditApp
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A React/Redux application to browse and interact with Reddit posts.
 
-## Available Scripts
+## Wireframes
+- **Home Page**: Displays a list of posts with titles, thumbnails (or placeholders), and "Read More" buttons, plus a search bar and filter panel.
+- **Detail Page**: Shows the selected post’s title, image (if available), and content (text or link).
 
-In the project directory, you can run:
+(Sketch these in a tool like Figma or link to hand-drawn images hosted online.)
 
-### `npm start`
+## Technologies Used
+- **React**: Frontend framework for UI components.
+- **Redux**: State management with Redux Toolkit for fetching and filtering posts.
+- **React Router**: Navigation between home and detail pages.
+- **Axios**: HTTP requests to Reddit API.
+- **CSS**: Custom styles for a cohesive design.
+- **Create React App**: Build tooling.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Features
+- Fetch and display recent posts from `r/all/hot`.
+- Search posts by title.
+- Filter posts by predefined subreddits (e.g., "aviation", "news").
+- View detailed post content (text or external link) on a new page.
+- Responsive design with grey placeholders during loading.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Future Work
+- Add animations/transitions (e.g., fade-in posts).
+- Implement unit and end-to-end tests.
+- Fetch more posts or search Reddit directly via API.
+- Add error handling UI (e.g., retry button).
+- Embed video players for `v.redd.it` links.
