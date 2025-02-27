@@ -12,7 +12,7 @@ A React and Redux application to browse Reddit posts from `r/all/hot`.
 1. **Prerequisites**: Node.js and npm installed.
 2. **Install**: `npm install`
 3. **Run**: `npm start` (runs on `http://localhost:3000`)
-4. Deployed at: https:/https://mr-kerad-redditapp.netlify.app/
+4. Deployed at: https://mr-kerad-redditapp.netlify.app/
 
 ## Technologies Used
 - **React**: UI with React Router.

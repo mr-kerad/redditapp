@@ -20,7 +20,7 @@ body {
 
 .search-bar {
   width: 100%;
-  max-width: 500px;
+  max-width: 450px;
   padding: 12px;
   margin-bottom: 20px;
   border: 1px solid #ccc;
@@ -88,10 +88,10 @@ body {
 
 .post-image {
   width: 100%;
-  max-height: 200px; /* Cap height but allow flexibility */
-  object-fit: contain; /* Preserve aspect ratio, no stretching */
+  max-height: 200px;
+  object-fit: cover; /* Fill space, cropping if needed */
   border-radius: 4px;
-  background-color: #e0e0e0; /* Grey background while loading */
+  display: block; /* Remove gaps */
 }
 
 .image-placeholder {
@@ -178,19 +178,4 @@ body {
 
 .post-detail p {
   margin: 0;
-}
-
-.fade-enter {
-  opacity: 0;
-}
-.fade-enter-active {
-  opacity: 1;
-  transition: opacity 300ms ease-in;
-}
-.fade-exit {
-  opacity: 1;
-}
-.fade-exit-active {
-  opacity: 0;
-  transition: opacity 300ms ease-out;
 }

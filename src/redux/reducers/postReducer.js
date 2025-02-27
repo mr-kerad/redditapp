@@ -9,14 +9,22 @@ export const fetchPosts = createAsyncThunk('posts/fetchPosts', async () => {
     const data = child.data;
     let image = null;
 
-    // Prioritize preview image (higher quality) if available
-    if (data.preview?.images?.[0]?.source?.url) {
-      image = data.preview.images[0].source.url.replace(/&/g, '&');
-    } else if (data.url && data.url.match(/\.(jpeg|jpg|png|gif)$/)) {
-      image = data.url;
-    } else if (data.thumbnail && data.thumbnail !== 'self' && data.thumbnail !== 'default' && data.thumbnail !== 'nsfw') {
+    // Log available image options for debugging
+    console.log(`Post: ${data.title}`);
+    console.log('Preview:', data.preview?.images?.[0]?.source?.url || 'None');
+    console.log('URL:', data.url || 'None');
+    console.log('Thumbnail:', data.thumbnail || 'None');
+
+    // Use thumbnail only if it’s from thumbs.redditmedia.com (reliable)
+    if (data.thumbnail && data.thumbnail.includes('thumbs.redditmedia.com') && data.thumbnail !== 'self' && data.thumbnail !== 'default' && data.thumbnail !== 'nsfw') {
       image = data.thumbnail;
     }
+    // Fallback to direct image URL if it’s valid
+    else if (data.url && data.url.match(/\.(jpeg|jpg|png|gif)$/)) {
+      image = data.url;
+    }
+
+    console.log('Selected Image:', image || 'None');
 
     return {
       id: data.id,
