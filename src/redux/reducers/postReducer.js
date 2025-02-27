@@ -9,12 +9,13 @@ export const fetchPosts = createAsyncThunk('posts/fetchPosts', async () => {
     const data = child.data;
     let image = null;
 
-    if (data.thumbnail && data.thumbnail !== 'self' && data.thumbnail !== 'default' && data.thumbnail !== 'nsfw') {
-      image = data.thumbnail;
-    } else if (data.is_video && data.preview?.images?.[0]?.source?.url) {
+    // Prioritize preview image (higher quality) if available
+    if (data.preview?.images?.[0]?.source?.url) {
       image = data.preview.images[0].source.url.replace(/&/g, '&');
     } else if (data.url && data.url.match(/\.(jpeg|jpg|png|gif)$/)) {
       image = data.url;
+    } else if (data.thumbnail && data.thumbnail !== 'self' && data.thumbnail !== 'default' && data.thumbnail !== 'nsfw') {
+      image = data.thumbnail;
     }
 
     return {
