@@ -3,11 +3,11 @@ module.exports = {
     '^.+\\.[tj]sx?$': 'babel-jest', // Transform JS/JSX/TS/TSX files
   },
   transformIgnorePatterns: [
-    '/node_modules/(?!axios|axios/.*)', // Transform axios and its submodules
+    '/node_modules/(?!axios)/', // Transform axios and its submodules
   ],
   moduleNameMapper: {
-    '^axios$': require.resolve('axios'), // Ensure correct axios resolution
+    '^axios$': '<rootDir>/node_modules/axios/lib/axios.js', // Point to CommonJS version
   },
-  testEnvironment: 'jsdom', // For React DOM testing
-  setupFilesAfterEnv: ['<rootDir>/src/setupTests.js'], // Load Jest DOM extensions
+  testEnvironment: 'jsdom',
+  setupFilesAfterEnv: ['<rootDir>/src/setupTests.js'],
 };
