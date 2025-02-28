@@ -1,28 +1,26 @@
-import React from 'react';
-import { render, screen, fireEvent } from '@testing-library/react';
-import { Provider } from 'react-redux';
-import configureStore from 'redux-mock-store';
-import SearchBar from './SearchBar';
+import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import { searchPosts } from '../redux/reducers/postReducer';
 
-const mockStore = configureStore([]);
+function SearchBar() {
+  const [searchTerm, setSearchTerm] = useState('');
+  const dispatch = useDispatch();
 
-describe('SearchBar', () => {
-  test('renders input and updates on change', () => {
-    const store = mockStore({});
-    store.dispatch = jest.fn();
+  const handleSearch = (e) => {
+    const term = e.target.value;
+    setSearchTerm(term);
+    dispatch(searchPosts(term));
+  };
 
-    render(
-      <Provider store={store}>
-        <SearchBar />
-      </Provider>
-    );
+  return (
+    <input
+      type="text"
+      value={searchTerm}
+      onChange={handleSearch}
+      placeholder="Search posts by title..."
+      className="search-bar"
+    />
+  );
+}
 
-    const input = screen.getByPlaceholderText('Search posts by title...');
-    expect(input).toBeInTheDocument();
-
-    fireEvent.change(input, { target: { value: 'test' } });
-    expect(input).toHaveValue('test');
-    expect(store.dispatch).toHaveBeenCalledWith(searchPosts('test'));
-  });
-});
+export default SearchBar;

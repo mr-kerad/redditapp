@@ -8,10 +8,10 @@ function PostItem({ post }) {
     <div className="post-item">
       <h3>{post.title}</h3>
       {post.image && !imageError ? (
-        <img 
-          src={post.image} 
-          alt={post.title} 
-          className="post-image" 
+        <img
+          src={post.image}
+          alt={post.title}
+          className="post-image"
           onError={() => {
             console.log(`Image failed to load for ${post.title}: ${post.image}`);
             setImageError(true);
@@ -21,7 +21,7 @@ function PostItem({ post }) {
         <div className="image-placeholder" data-testid="image-placeholder" />
       )}
       <Link to={`/post/${post.id}`} className="read-more-btn">
-        Read More ...
+        Read More
       </Link>
     </div>
   );
