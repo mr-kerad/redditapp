@@ -21,7 +21,7 @@ function PostItem({ post }) {
         <div className="image-placeholder" data-testid="image-placeholder" />
       )}
       <Link to={`/post/${post.id}`} className="read-more-btn">
-        Read More
+        Read More ...
       </Link>
     </div>
   );
