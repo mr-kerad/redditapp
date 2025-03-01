@@ -19,16 +19,18 @@ body {
 }
 
 .search-bar {
-  width: 100%;
-  max-width: 450px;
+  width: 100%; /* Keep full width */
+  max-width: 100%; /* Cap at viewport width, not 500px */
   padding: 12px;
   margin-bottom: 20px;
   border: 1px solid #ccc;
   border-radius: 4px;
   font-size: 16px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  box-sizing: border-box; /* Include padding/border in width */
 }
 
+/* Rest of your CSS remains unchanged */
 .filter-panel {
   display: flex;
   flex-wrap: wrap;
